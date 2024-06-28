@@ -1,12 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useWeb3ModalProvider } from '@web3modal/ethers/react';
+import { useProviderActive } from '@/context/ProviderSelectCtx';
 import { BrowserProvider } from 'ethers';
 import { useState } from 'react';
 
 const SignMessage = () => {
-  const { walletProvider } = useWeb3ModalProvider();
+  const { provider } = useProviderActive();
   const [signature, setSignature] = useState('');
+  const walletProvider = provider?.provider;
 
   const handleSignMessage = async () => {
     if(!walletProvider) return;

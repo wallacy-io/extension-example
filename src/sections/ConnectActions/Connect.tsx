@@ -2,19 +2,21 @@ import { Button } from '@/components/ui/button';
 import { useProviderActive } from '@/context/ProviderSelectCtx';
 
 const Connect = () => {
-  const { provider: providerSelect } = useProviderActive();
+  const { provider: providerSelect, setAddressWallet } = useProviderActive();
   const handleConnect = async () => {
     if (!providerSelect?.provider) return;
     try {
-      providerSelect?.provider.request({
+      const accounts = await providerSelect?.provider.request({
         method: 'eth_requestAccounts',
-      });
+      }) as string[];
+      console.info('accounts', accounts);
+      setAddressWallet(accounts[0]);
     } catch (error) {
       console.error('Failed to connect to provider:', error);
     }
   };
 
-  return <Button onClick={handleConnect}>Connect</Button>;
+  return <Button disabled={!providerSelect} onClick={handleConnect}>Connect</Button>;
 };
 
 export default Connect;

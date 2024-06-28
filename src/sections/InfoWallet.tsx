@@ -1,25 +1,25 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  useWeb3ModalAccount,
-  useWeb3ModalProvider,
-} from '@web3modal/ethers/react';
+import { useProviderActive } from '@/context/ProviderSelectCtx';
 import { BrowserProvider, formatEther } from 'ethers';
 import { useEffect, useState } from 'react';
 
 const InfoWallet = () => {
-  const [balance, setBalance] = useState('0');
-  const { isConnected, address, chainId } = useWeb3ModalAccount();
-  const { walletProvider } = useWeb3ModalProvider();
+  const [balance, setBalance] = useState('');
+  const [chainId, setChainId] = useState('');
+  const { provider: providerActive, addressWallet } = useProviderActive();
 
   useEffect(() => {
     async function getBalance() {
-      const provider = new BrowserProvider(walletProvider!);
-      const balance = await provider.getBalance(address!);
+      if(!providerActive?.provider) return;
+      const provider = new BrowserProvider(providerActive.provider);
+      const balance = await provider.getBalance(addressWallet);
+      const network = await provider.getNetwork();
       const balanceInEther = formatEther(balance);
+      setChainId(network.chainId + '');
       setBalance(balanceInEther);
     }
     getBalance();
-  }, []);
+  }, [providerActive, addressWallet]);
 
   return (
     <Card className='self-stretch'>
@@ -27,10 +27,10 @@ const InfoWallet = () => {
         <CardTitle>Information Wallet</CardTitle>
       </CardHeader>
       <CardContent>
-        {isConnected ? (
+        {addressWallet ? (
           <>
             <p>ChainId: {chainId}</p>
-            <p className='break-words'>Address: {address}</p>
+            <p className='break-words'>Address: {addressWallet}</p>
             <p>Balance: {balance} ETH</p>
           </>
         ) : (

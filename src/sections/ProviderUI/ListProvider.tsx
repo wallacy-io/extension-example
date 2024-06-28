@@ -46,9 +46,9 @@ const ListProvider = () => {
         <CardTitle>EIP 6963</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className='flex items-center gap-5 max-lg:flex-col'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
           {providers.map((provider) => (
-            <Card>
+            <Card key={provider.info.uuid}>
               <CardContent className='bg-gray-300 m-3 pt-5'>
                 <p>"uuid": {provider.info.uuid}</p>
                 <p>"name": {provider.info.name}</p>
