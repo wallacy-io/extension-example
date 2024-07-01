@@ -1,5 +1,4 @@
 import {
-  useWalletInfo,
   useWeb3ModalAccount,
   useWeb3ModalProvider,
 } from '@web3modal/ethers/react';

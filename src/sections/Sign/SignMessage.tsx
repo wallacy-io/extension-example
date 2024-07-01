@@ -23,7 +23,7 @@ const SignMessage = () => {
         <CardTitle>Sign </CardTitle>
       </CardHeader>
       <CardContent>
-        <Button onClick={handleSignMessage}>Sign Message</Button>
+        <Button disabled={!walletProvider} onClick={handleSignMessage}>Sign Message</Button>
         <div className='min-h-10  bg-yellow-400 items-start pl-3 mt-2 w-full flex flex-col'>
           <p className='mb-0'> Result:</p>
           <p className='break-all text-wrap'>{signature}</p>
