@@ -1,6 +1,6 @@
 import { ethersConfig, mainnet, projectId } from '@/configs/wallet-connect';
 import { ProviderActive } from '@/context/ProviderSelectCtx';
-import { ConnectActions, InfoWallet, ProviderUI, Sign } from '@/sections';
+import { ConnectActions, Guides, InfoWallet, ProviderUI, Sign } from '@/sections';
 import { createWeb3Modal } from '@web3modal/ethers';
 import './App.css';
 
@@ -13,7 +13,8 @@ const modal = createWeb3Modal({
 
 function App() {
   return (
-    <main className='flex flex-col justify-center items-center pt-12 gap-5 px-12'>
+    <main className='flex flex-col justify-center items-center pt-12 gap-5 px-12 pb-10'>
+      <h1 className='text-2xl font-bold'>E2E Test Dapp</h1>
       <ProviderActive>
         <ProviderUI />
         <div className='flex gap-3 items-stretch w-full max-lg:flex-col'>
@@ -26,6 +27,9 @@ function App() {
           </div>
         </div>
       </ProviderActive>
+
+      <h1 className='text-2xl font-bold my-5'>Guides</h1>
+      <Guides />
     </main>
   );
 }
