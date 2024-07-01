@@ -173,3 +173,28 @@ const App = () => {
   );
 };
 ```
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/wallacy-io/extension-example.git
+    cd extension-example
+    ```
+
+2. Install dependencies:
+    ```sh
+    npm install
+    # or
+    yarn install
+    ```
+
+## Usage
+
+### Development Server
+
+To start the development server:
+```sh
+npm run dev
+# or
+yarn dev
