@@ -19,7 +19,7 @@ const Guides = () => {
   return (
     <div className='flex w-full flex-col gap-10'>
       {LIST_LINK_CODESANBOX.map((item, key) => (
-        <Card>
+        <Card key={key}>
           <CardHeader>
             <CardTitle>{item.title}</CardTitle>
           </CardHeader>
