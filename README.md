@@ -9,7 +9,10 @@ Wallacy Wallet supports [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963) stan
 - [RainbowKit](https://www.rainbowkit.com)
 - [Web3-Onboard](https://onboard.blocknative.com)
 
+You can visit our website to check wallet connection at: [E2E Test Dapp](https://wallacy-io.github.io/extension-example/).
+
 ## Connect to Wallacy using WalletConnect
+You can visit [CodeSanbox](https://codesandbox.io/p/sandbox/stoic-boyd-887d7n) to see full example.
 
 ### Installation
 
@@ -63,7 +66,10 @@ btn.addEventListener('click', () => modal.open());
 
 You can follow the WalletConnect documentation for implementation example for React, Vue, Svelte...
 
+
 ## Connect to Wallacy manually
+
+You can visit [CodeSanbox](https://codesandbox.io/p/sandbox/pedantic-banach-cjy8lp) to see full example.
 
 ```ts
 interface EIP6963ProviderInfo {
@@ -137,6 +143,8 @@ export function listProviders(element: HTMLDivElement) {
 
 ## Connect to Wallacy using Web3js and React
 
+You can visit [CodeSanbox](https://codesandbox.io/p/sandbox/quirky-jang-7lw7ls) to see full example.
+
 ```tsx
 import { Web3 } from 'web3';
 
@@ -155,12 +163,15 @@ const ConnectButton = ({ wallet }: ConnectButtonProps) => {
 };
 
 const App = () => {
-  const [wallets, setWallets] = useState<EIP6963ProviderDetail[]>();
+  const [providers, setProviders] = useState<EIP6963ProviderDetail[]>([]);
 
   useEffect(() => {
     (async () => {
       const providers = await Web3.requestEIP6963Providers();
-      setProviders(providers);
+      const arrProvider = Array.from(
+        providers.values()
+      ) as EIP6963ProviderDetail[];
+      setProviders(arrProvider);
     })();
   });
 
@@ -174,7 +185,7 @@ const App = () => {
 };
 ```
 
-## Installation
+## Installation Reponsitory
 
 1. Clone the repository:
     ```sh
@@ -189,7 +200,7 @@ const App = () => {
     yarn install
     ```
 
-## Usage
+## Usage Reponsitory
 
 ### Development Server
 

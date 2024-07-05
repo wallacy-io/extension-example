@@ -1,6 +1,6 @@
 import { ethersConfig, mainnet, projectId } from '@/configs/wallet-connect';
 import { ProviderActive } from '@/context/ProviderSelectCtx';
-import { ConnectActions, Guides, InfoWallet, ProviderUI, Sign } from '@/sections';
+import { ConnectActions, InfoWallet, ProviderUI, Sign } from '@/sections';
 import { createWeb3Modal } from '@web3modal/ethers';
 import './App.css';
 
@@ -27,9 +27,9 @@ function App() {
           </div>
         </div>
       </ProviderActive>
-
+{/* 
       <h1 className='text-2xl font-bold my-5'>Guides</h1>
-      <Guides />
+      <Guides /> */}
     </main>
   );
 }
