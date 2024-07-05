@@ -1,3 +1,12 @@
+<p align="center">
+  <a href="https://wallacy.io/">
+    <picture>
+      <img src="https://i.imgur.com/yIdmwIP.png" height="128">
+    </picture>
+    <h1 align="center">Wallacy</h1>
+  </a>
+</p>
+
 # Connect to Wallacy Wallet from your dApps
 
 Wallacy Wallet supports [EIP-6963](https://eips.ethereum.org/EIPS/eip-6963) standard, so you can connect to Wallacy using any libraries that support EIP-6963. Ex:
@@ -185,7 +194,7 @@ const App = () => {
 };
 ```
 
-## Installation Reponsitory
+## Installation
 
 1. Clone the repository:
     ```sh
@@ -200,7 +209,7 @@ const App = () => {
     yarn install
     ```
 
-## Usage Reponsitory
+## Usage
 
 ### Development Server
 
