@@ -195,7 +195,7 @@ const App = () => {
 ```
 
 ## Connect to Wallacy using 🌈RainbowKit
-
+You can visit [CodeSanbox](https://codesandbox.io/p/devbox/keen-mendel-zbwvie) to see full example.
 ```tsx
 import {
   ConnectButton,
